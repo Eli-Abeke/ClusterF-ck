@@ -21,9 +21,9 @@ npm install
 ```
 
 ### Configure Supabase:
-    Set up a Supabase project and obtain the necessary credentials.
-    Create a .env.local file in the project root directory.
-    Add the following environment variables to the .env.local file:
+Set up a Supabase project and obtain the necessary credentials.
+Create a .env.local file in the project root directory.
+Add the following environment variables to the .env.local file:
 
 ```makefile
 
