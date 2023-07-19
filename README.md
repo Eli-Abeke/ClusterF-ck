@@ -1,16 +1,16 @@
-#ClusterF*ck
+# ✨ClusterF*ck✨
 
 ClusterF*ck is a GitHub project that utilizes text embeddings to cluster notes and provides a user-friendly interface for editing the position of these notes using a simple slick and drag mechanism. The project is built with Next.js and Tailwind CSS, and it uses Supabase as the database, which runs on PostgreSQL.
 
-##Getting Started
+## Getting Started
 To initialize a Next.js project cloned from GitHub and set up ClusterF*ck, follow these steps:
 
-Clone the repository:
+### Clone the repository:
 ```bash
 git clone https://github.com/your-username/ClusterF*ck.git
 ```
 
-Navigate to the project directory:
+### Navigate to the project directory:
 ```bash 
 cd ClusterF*ck
 ```
@@ -20,7 +20,7 @@ Install the dependencies:
 npm install
 ```
 
-Configure Supabase:
+### Configure Supabase:
     Set up a Supabase project and obtain the necessary credentials.
     Create a .env.local file in the project root directory.
     Add the following environment variables to the .env.local file:
@@ -31,14 +31,14 @@ NEXT_PUBLIC_SUPABASE_URL=<your-supabase-url>
 NEXT_PUBLIC_SUPABASE_KEY=<your-supabase-key>
 ```
 
-Run the development server:
+### Run the development server:
 ```bash
 npm run dev
 ```
 
 Open your browser and navigate to http://localhost:3000 to see the ClusterF*ck application.
 
-Futureproofing for Adding the Embeddings Feature
+## Futureproofing for Adding the Embeddings Feature
 
 When building up the interface and planning to add the embeddings feature to ClusterF*ck, consider the following steps:
   Identify the functionality and requirements of the embeddings feature. Determine how the text embeddings will be generated and how they will be used for clustering.
@@ -50,4 +50,4 @@ When building up the interface and planning to add the embeddings feature to Clu
   Test the embeddings feature thoroughly to ensure it functions as expected. Write unit tests and conduct user testing to validate its accuracy and usability.
   Consider documenting the integration of the embeddings feature in the project's documentation or README file. Provide instructions on how to use the feature and any relevant configuration options.
 
-By following these steps, you can effectively futureproof the ClusterF*ck project while adding the embeddings feature, ensuring a smooth integration and providing a robust and user-friendly experience.
+By following these steps, you can effectively futureproof the ClusterF*ck project while adding the embeddings feature, ensuring a smooth integration and providing a robust and user-friendly experience. 😄😄
