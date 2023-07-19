@@ -9,6 +9,11 @@ export default function NoteNode(props) {
     const supabase = useContext(SupabaseProvider)
     var { CurrentState, setCurrentState, Veiwing, setVeiwing, Lightmode, setLightmode } = useContext(ApplicationState)
 
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+
     function overlayCheck() {
         let notes = document.querySelectorAll('.note');
         let nodes = document.querySelectorAll('.node');
@@ -29,11 +34,41 @@ export default function NoteNode(props) {
                     topPos(nodes[i]) > btmPos(notes[j])
                 );
 
-                if (isOverlapping && j !== i) {
-                    overlaps = overlaps+1
+                if (!isOverlapping) {
+                    HandleConnections([notes[j], nodes[i]], false)
                 }
+                else {
+                    sleep(1000)
+                    overlaps = overlaps+1
+                    HandleConnections([notes[j], nodes[i]], true)
+                }
+
             }
-            console.log(overlaps)
+            
+        }
+    }
+
+    function HandleConnections(elements, create = true){
+        let elem1 = elements[0].parentElement.id
+        let elem2 = elements[1].parentElement.id
+        let connect = props.connections
+        if (create){
+            let removeIndex = connect.findIndex(x => ((x.element2 === elem2) & (x.element1 === elem1)))
+            if (removeIndex == -1){
+                connect.push({"element1":elem1, "element2":elem2})
+                props.updateConnections(connect)
+                console.log(connect)
+            
+        }
+        }
+        if (!create){
+            let removeIndex = connect.findIndex(x => ((x.element2 === elem2) & (x.element1 === elem1)))
+            if (removeIndex !== -1){
+            console.log(removeIndex)
+            
+            props.updateConnections(connect.splice(removeIndex,1))}
+            
+        
         }
     }
 

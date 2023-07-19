@@ -93,7 +93,7 @@ export default function Home() {
     return (
       <SupabaseProvider.Provider value={supabase}>
       <ApplicationState.Provider value={{ CurrentState, setCurrentState, Veiwing, setVeiwing, Lightmode, setLightmode }}>
-        <main className={`${inter.className} flex flex-col w-screen h-screen`}>
+        <main className={`${inter.className} flex flex-col w-screen h-screen overflow-hidden`}>
           <Navbar />
           <div className='w-[100vw] h-full flex flex-row'>
             <Notepad Notes={allNotes}/>
