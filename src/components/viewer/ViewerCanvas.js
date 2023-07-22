@@ -12,27 +12,30 @@ export default function ViewerCanvas(props) {
 
   var { CurrentState, setCurrentState, Veiwing, setVeiwing, Lightmode, setLightmode } = useContext(ApplicationState)
 
-  const [NodeConnection, setNodeConnection] = useState([""])
+  const [NodeConnection, setNodeConnection] = useState([])
+
+  const [increment, setincrement] = useState(0);
   useEffect(() => {
-    console.log(typeof NodeConnection);
-  }, [NodeConnection]);
-
-  console.log(typeof NodeConnection)
-
+    setincrement(increment+1)
+  },[NodeConnection]);
 
 
   if (Notes) {
     return (
       <div className={`h-full bg-border/70 origin-center flex overflow-hidden relative transition-all ${(CurrentState == 1) ? "w-0" : "w-full"}`}>
-        <div className='w-[800px] h-[800px]' ref={nodeConstraints} onFocus={()=>(console.log("focused"))} tabIndex={10}>
+        <div className='w-[800px] h-[800px]' ref={nodeConstraints} tabIndex={10}>
         
           <div className='w-0 h-0 py-[400px] px-[400px] relative' >
+            <div className='absolute top-0 left-0'>
             {
-              
-              NodeConnection.map((item) => (
-                <Connectors id1={item.element1} id2={item.element2}/>
+              NodeConnection.map((item,index) => (
+                <div className=''>
+                  <p>item</p>
+                
+                </div>
               ))
             }
+            </div>
             {
               Notes.notes.map((note, index) => (
                 <NoteNode connections={NodeConnection} updateConnections={setNodeConnection} item={note} container={nodeConstraints} />

@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-export default function Connectors(props) {
+export default function Connectors(id1, id2) {
 
   
   var x1 = 50
@@ -8,26 +8,28 @@ export default function Connectors(props) {
   var y1 = 100
   var y2 = 0
 
-  console.log(props.id1)
-  
-  if (typeof window !== "undefined") {
-    var element1 = document.getElementById(props.id1)
-    var element2 = document.getElementById(props.id2)
 
-    if (element1 & element2){
-      x1 = (element1.getBoundingClientRect().left + element1.getBoundingClientRect().right)/2
-      y1 = (element1.getBoundingClientRect().top + element1.getBoundingClientRect().bottom)/2
+  const [Element, setElement] = useState({id1, id2});
+
+    if (typeof window !== "undefined") {
+      var element1 = document.getElementById(id1)
+      var element2 = document.getElementById(id2)
+      if (element1 ){
+        x1 = (element1.getBoundingClientRect().left)
+        y1 = (element1.getBoundingClientRect().top )
+        x2 = (element2.getBoundingClientRect().left)
+        y2 = (element2.getBoundingClientRect().top )
+
     
-      x2 = (element2.getBoundingClientRect().left + element2.getBoundingClientRect().right)/2
-      y2 = (element2.getBoundingClientRect().top + element2.getBoundingClientRect().bottom)/2
-  }}
+      }}
+    return () => {
+        <svg key={props.key} className='w-full h-full absolute top-0 left-0' width="100" height="100">
+        <line x1={String(x1)} y1={String(y1)} x2={String(x2)} y2={String(y2)} stroke="black" strokeWidth={2}/>
+     </svg>
+    };
 
   
 
-  return (
-    <svg className='absolute top-0 left-0' width="1000" height="1000">
-      <line x1={String(x1)} y1={String(y1)} x2={String(x2)} y2={String(y2)} stroke="black" strokeWidth={1}/>
-    </svg>
-  )
+
 }
  

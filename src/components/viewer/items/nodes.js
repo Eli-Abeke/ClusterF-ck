@@ -36,6 +36,7 @@ export default function NoteNode(props) {
 
                 if (!isOverlapping) {
                     HandleConnections([notes[j], nodes[i]], false)
+                    
                 }
                 else {
                     sleep(1000)
@@ -57,14 +58,14 @@ export default function NoteNode(props) {
             if (removeIndex == -1){
                 connect.push({"element1":elem1, "element2":elem2})
                 props.updateConnections(connect)
-                console.log(connect)
+                console.log(connect);
+
             
         }
         }
         if (!create){
             let removeIndex = connect.findIndex(x => ((x.element2 === elem2) & (x.element1 === elem1)))
             if (removeIndex !== -1){
-            console.log(removeIndex)
             
             props.updateConnections(connect.splice(removeIndex,1))}
             
@@ -80,13 +81,12 @@ export default function NoteNode(props) {
             .from('Notes')
             .update({x: String(((item.x/20) + 6)), y:String(((item.y/20) + 6)) })
             .eq("id", item.id)
-            console.log(error)}
+            }
         else{
             const { error } = await supabase
             .from('Nodes')
             .update({x: String(((item.x/20) + 6)), y:String(((item.y/20) + 6)) })
             .eq("id", item.id)
-            console.log(error)
         }
     }
 
@@ -119,6 +119,8 @@ export default function NoteNode(props) {
         }
 
     }
+
+
 
     return (
         <motion.div

@@ -87,7 +87,6 @@ export default function Notepad(props) {
 
 
   useEffect(() => {
-    console.log("change")
     if (typeof window !== "undefined") {
       let titleBox = document.getElementById("titleBox")
       let noteBox = document.getElementById("noteBox")
